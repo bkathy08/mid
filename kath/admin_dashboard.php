@@ -20,6 +20,7 @@ if(!isset($_SESSION['username'])||$_SESSION['role']!='admin'){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>ADMIN DASHBOARD</title>
 </head>
 <body>
@@ -75,8 +76,9 @@ if(!isset($_SESSION['username'])||$_SESSION['role']!='admin'){
             echo "<td>".$row['lastname']."</td>";
             echo "<td>".$row['role']."</td>";
             echo "<td>";
-            echo "<a href=''>Edit</a>|";
-            echo "<a href=''>Delete</a>";
+            echo "<a href='edit_client.php?ID=".$row['ID']."'>Edit</a> |";
+            echo "<a href='delete_client.php?ID=".$row['ID']."'onclick='return confirm
+                  (\"Are u Sure u want to del this client?\");'>Delete</a>";
             echo "</td>";
             echo "</tr>";
             $count++;
@@ -87,7 +89,7 @@ if(!isset($_SESSION['username'])||$_SESSION['role']!='admin'){
         {
                echo"<tr><td colspan=5> NO RECORD FOUND! </td> </tr>";
 
-       }
+        }
        ?>
 
 
